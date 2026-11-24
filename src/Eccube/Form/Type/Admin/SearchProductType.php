@@ -34,6 +34,7 @@ use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class SearchProductType extends AbstractType
 {
@@ -270,6 +271,10 @@ class SearchProductType extends AbstractType
             ])
             ->add('sorttype', HiddenType::class, [
                 'label' => 'admin.list.sort.type',
+                'required' => false,
+            ])
+            ->add('stock_alert_only', CheckboxType::class, [
+                'label' => 'admin.product.stock_alert_only',
                 'required' => false,
             ])
             ->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {

@@ -79,6 +79,15 @@
             }
         }
 
+        // 在庫僅少バッジの表示制御
+        var $stockAlert = $('.ec-productRole__stock .stock-alert');
+
+        if (classcat2 && classcat2.stock_alert === true) {
+            $stockAlert.show();
+        } else {
+            $stockAlert.hide();
+        }
+
         if (typeof classcat2 === 'undefined') {
             // 商品コード
             var $product_code = $('.product-code-default');

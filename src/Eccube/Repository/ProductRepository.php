@@ -241,7 +241,8 @@ class ProductRepository extends AbstractRepository
      *         update_date_start?:\DateTime,
      *         update_date_end?:\DateTime,
      *         sortkey?:string,
-     *         sorttype?:string
+     *         sorttype?:string,
+     *         stock_alert_only?:bool
      *     } $searchData
      *
      * @return \Doctrine\ORM\QueryBuilder
@@ -313,6 +314,16 @@ class ProductRepository extends AbstractRepository
             $qb
                 ->andWhere($qb->expr()->in('p.Status', ':Status'))
                 ->setParameter('Status', $searchData['link_status']);
+        }
+
+        // stock alert only
+        // 判定の仕様は Customize\Entity\ProductClass::isStockAlert() と揃える
+        if (!empty($searchData['stock_alert_only'])) {
+            $qb
+                ->andWhere('pc.stock_unlimited = false')
+                ->andWhere('pc.stock_alert_threshold IS NOT NULL')
+                ->andWhere('pc.stock > 0')
+                ->andWhere('pc.stock <= pc.stock_alert_threshold');
         }
 
         // stock status

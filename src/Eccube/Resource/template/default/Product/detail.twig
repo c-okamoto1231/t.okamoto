@@ -88,7 +88,16 @@ file that was distributed with this source code.
             width: 0;
             height: 0;
         }
-
+                
+        .stock-alert {
+            display: none;
+            padding: 4px 10px;
+            color: #fff;
+            background-color: #dc3545;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
     </style>
 {% endblock %}
 
@@ -352,6 +361,10 @@ file that was distributed with this source code.
                             {{ 'front.product.code'|trans }}： <span class="product-code-default">{{ Product.code_min }}{% if Product.code_min != Product.code_max %} ～ {{ Product.code_max }}{% endif %}</span>
                         </div>
                     {% endif %}
+                    {# 在庫僅少バッジ #}
+                    <div class="ec-productRole__stock">
+                        <span class="stock-alert" style="display: none;">{{ 'front.product.stock_alert'|trans }}</span>
+                    </div>
                     {# 関連カテゴリ #}
                     {% if Product.ProductCategories is not empty %}
                         <div class="ec-productRole__category">

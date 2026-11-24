@@ -185,6 +185,7 @@ file that was distributed with this source code.
                                 <p class="col-form-label">{{ 'admin.product.stock__short'|trans }}</p>
                                 {{ form_widget(searchForm.stock, {'label_attr': {'class': 'checkbox-inline'}}) }}
                                 {{ form_errors(searchForm.stock) }}
+                                {{ form_row(searchForm.stock_alert_only) }}
                             </div>
                         </div>
                     </div>
