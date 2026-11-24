@@ -126,15 +126,16 @@ ProductClass.phpに@Assert\PositiveOrZeroを記載しているため動作とし
    （例：`docs/breakpoint.png` に置いて `![ブレークポイント](docs/breakpoint.png)` と書く）
 
 <!-- ここにスクリーンショットを貼ってください -->
-
+![docs/breakpoint.png](https://github.com/c-okamoto1231/t.okamoto/blob/main/docs/breakpoint.png)
 **どのファイルの何行目にブレークポイントを置きましたか。なぜそこを選びましたか。**
 
 <!-- ここに記入 -->
-
+- ProductClassController.php の126行目
+- `handleRequest()` で入力値がProductClassに入り `isValid()` で検証を通った直後で、DB に保存する直前の地点のため
 **そこで見た変数には、どんな値が入っていましたか。**
 
 <!-- ここに記入 -->
-
+- 該当の箇所に入力した閾値「4」が入っていた
 ## 4. 設計判断の根拠
 
 自分が書いたコードについて、以下の問いに答えてください。
