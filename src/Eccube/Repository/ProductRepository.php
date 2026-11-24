@@ -317,7 +317,7 @@ class ProductRepository extends AbstractRepository
         }
 
         // stock alert only
-        // 判定の仕様は Customize\Entity\ProductClass::isStockAlert() と揃える
+        // 判定の仕様は Eccube\Entity\ProductClass::isStockAlert() と揃える
         if (!empty($searchData['stock_alert_only'])) {
             $qb
                 ->andWhere('pc.stock_unlimited = false')
